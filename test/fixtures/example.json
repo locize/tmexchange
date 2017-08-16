@@ -1,0 +1,22 @@
+{
+  "resources": {
+    "namespace1": {
+      "key1": {
+        "en-US": "Hello",
+        "de-CH": "Hallo"
+      },
+      "key2": {
+        "en-US": "An application to manipulate and process TMX documents",
+        "de-CH": "Eine Applikation um TMX Dokumente zu manipulieren und verarbeiten"
+      },
+      "key.nested": {
+        "en-US": "TMX Data Manager",
+        "de-CH": "TMX Daten Manager"
+      }
+    }
+  },
+  "sourceLanguage": "en-US",
+  "creationToolVersion": "1.01-023",
+  "administrationLanguage": "en-US",
+  "creationTool": "tmexchange"
+}

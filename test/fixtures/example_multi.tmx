@@ -1,0 +1,41 @@
+<tmx version="1.4b">
+  <header creationtool="tmexchange" creationtoolversion="1.01-023" adminlang="en-US" datatype="PlainText" segtype="sentence" o-tmf="ABCTransMem" srclang="en-US"/>
+  <body>
+    <tu tuid="key1">
+      <prop type="group">namespace1</prop>
+      <tuv xml:lang="en-US">
+        <seg>Hello</seg>
+      </tuv>
+      <tuv xml:lang="de-CH">
+        <seg>Hallo</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Ciao</seg>
+      </tuv>
+    </tu>
+    <tu tuid="key2">
+      <prop type="group">namespace1</prop>
+      <tuv xml:lang="en-US">
+        <seg>An application to manipulate and process TMX documents</seg>
+      </tuv>
+      <tuv xml:lang="de-CH">
+        <seg>Eine Applikation um TMX Dokumente zu manipulieren und verarbeiten</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Un'applicazione per manipolare e elaborare documenti TMX</seg>
+      </tuv>
+    </tu>
+    <tu tuid="key.nested">
+      <prop type="group">namespace2</prop>
+      <tuv xml:lang="en-US">
+        <seg>TMX Data Manager</seg>
+      </tuv>
+      <tuv xml:lang="de-CH">
+        <seg>TMX Daten Manager</seg>
+      </tuv>
+      <tuv xml:lang="it">
+        <seg>Manager Dati TMX</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
