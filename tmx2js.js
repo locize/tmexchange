@@ -35,7 +35,6 @@ function tmxToJs(str, cb) {
     const segtype = data.tmx.header[0].$.segtype;
     const oTMF = data.tmx.header[0].$['o-tmf'];
 
-    var err;
     if (datatype !== 'PlainText') err = new Error('datatype must be PlainText');
     if (segtype !== 'sentence') err = new Error('segtype must be sentence');
     if (oTMF !== 'ABCTransMem') err = new Error('o-tmf must be ABCTransMem');
