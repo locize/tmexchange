@@ -23,5 +23,6 @@
   "sourceLanguage": "en-US",
   "creationToolVersion": "1.01-023",
   "administrationLanguage": "en-US",
-  "creationTool": "tmexchange"
+  "creationTool": "tmexchange",
+  "version": "1.4b"
 }

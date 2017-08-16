@@ -41,11 +41,13 @@ function tmxToJs(str, cb) {
     if (oTMF !== 'ABCTransMem') err = new Error('o-tmf must be ABCTransMem');
     if (err) return cb(err);
 
+    const version = data.tmx.$.version;
     const srclang = data.tmx.header[0].$.srclang;
     const creationtool = data.tmx.header[0].$.creationtool;
     const creationtoolversion = data.tmx.header[0].$.creationtoolversion;
     const adminlang = data.tmx.header[0].$.adminlang;
 
+    result.version = version;
     result.sourceLanguage = srclang;
     result.creationTool = creationtool;
     result.creationToolVersion = creationtoolversion;
