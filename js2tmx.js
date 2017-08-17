@@ -1,4 +1,4 @@
-const package = require('./package.json');
+const packageJSON = require('./package.json');
 const xml2js = require('xml2js');
 
 function js2tmx(obj, opt, cb) {
@@ -27,8 +27,8 @@ function js2tmx(obj, opt, cb) {
     },
     header: {
       $: {
-        creationtool: obj.creationTool || package.name,
-        creationtoolversion: obj.creationToolVersion || package.version,
+        creationtool: obj.creationTool || packageJSON.name,
+        creationtoolversion: obj.creationToolVersion || packageJSON.version,
         adminlang: obj.administrationLanguage || obj.sourceLanguage,
         datatype: 'PlainText',
         segtype: 'sentence',
