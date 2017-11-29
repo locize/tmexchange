@@ -4,7 +4,7 @@ const xml2js = require('xml2js');
 function js2tmx(obj, opt, cb) {
   if (typeof opt === 'function') {
     cb = opt;
-    opt = { pretty: true, indent: ' ', newline: '\n' };
+    opt = { pretty: true, indent: '  ', newline: '\n' };
   }
 
   if (!obj.sourceLanguage) {
@@ -16,9 +16,11 @@ function js2tmx(obj, opt, cb) {
   const builder = new xml2js.Builder({
     rootName: 'tmx',
     headless: true,
-    pretty: opt.pretty,
-    indent: opt.indent || ' ',
-    newline: opt.newline || '\n'
+    renderOpts: {
+      pretty: opt.pretty === false ? false : true,
+      indent: opt.indent || '  ',
+      newline: opt.newline || '\n'
+    }
   });
 
   const xmlJs = {
