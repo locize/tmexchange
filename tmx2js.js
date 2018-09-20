@@ -52,17 +52,19 @@ function tmxToJs(str, cb) {
     result.creationToolVersion = creationtoolversion;
     result.administrationLanguage = adminlang;
 
-    data.tmx.body[0].tu.forEach((tu) => {
-      if (tu.prop && tu.prop.length > 0 && getGroupProp(tu.prop)) {
-        // with namespace
-        const namespace = getGroupProp(tu.prop);
-        result.resources[namespace] = result.resources[namespace] || {};
+    if (data.tmx.body[0].tu) {
+      data.tmx.body[0].tu.forEach((tu) => {
+        if (tu.prop && tu.prop.length > 0 && getGroupProp(tu.prop)) {
+          // with namespace
+          const namespace = getGroupProp(tu.prop);
+          result.resources[namespace] = result.resources[namespace] || {};
 
-        return parse(tu, result.resources[namespace]);
-      }
+          return parse(tu, result.resources[namespace]);
+        }
 
-      parse(tu, result.resources);
-    });
+        parse(tu, result.resources);
+      });
+    }
 
     cb(null, result);
   });
