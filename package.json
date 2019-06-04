@@ -1,6 +1,6 @@
 {
   "name": "tmexchange",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "tmx2js and js2tmx converter tmx utils",
   "main": "index.js",
   "engines": {
