@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tmx version="1.4">
+  <header creationtool="SDL Language Platform" creationtoolversion="8.0" adminlang="en-US" datatype="xml" segtype="sentence" o-tmf="SDL TM8 Format" srclang="en-US"/>
+  <body>
+    <tu>
+      <tuv xml:lang="en-US">
+        <seg>Hello</seg>
+      </tuv>
+      <tuv xml:lang="de-CH">
+        <seg>Hallo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="en-US">
+        <seg>TMX Data Manager</seg>
+      </tuv>
+      <tuv xml:lang="de-CH">
+        <seg>TMX Daten Manager</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

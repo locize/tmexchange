@@ -24,5 +24,8 @@
   "creationToolVersion": "1.01-023",
   "administrationLanguage": "en-US",
   "creationTool": "tmexchange",
-  "version": "1.4b"
+  "version": "1.4b",
+  "oTMF": "ABCTransMem",
+  "tuid": true,
+  "datatype": "PlainText"
 }

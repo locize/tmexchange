@@ -13,5 +13,9 @@ module.exports = {
   example_multi: {
     js: require('./example_multi.json'),
     tmx: fs.readFileSync(path.join(__dirname, 'example_multi.tmx')).toString().replace(/\n$/, '')
+  },
+  example_sdl_tm8_format: {
+    js: require('./example_sdl_tm8_format.json'),
+    tmx: fs.readFileSync(path.join(__dirname, 'example_sdl_tm8_format.tmx')).toString().replace(/\n$/, '')
   }
 };

@@ -67,3 +67,23 @@ describe('multi', () => {
   });
 
 });
+
+describe('sdl', () => {
+
+  test('js2tmx', (fn) => (done) => {
+    fn(fixtures.example_sdl_tm8_format.js, { headless: false }, (err, res) => {
+      expect(err).not.to.be.ok();
+      expect(res).to.eql(fixtures.example_sdl_tm8_format.tmx);
+      done();
+    });
+  });
+
+  test('tmx2js', (fn) => (done) => {
+    fn(fixtures.example_sdl_tm8_format.tmx, (err, res) => {
+      expect(err).not.to.be.ok();
+      expect(res).to.eql(fixtures.example_sdl_tm8_format.js);
+      done();
+    });
+  });
+
+});

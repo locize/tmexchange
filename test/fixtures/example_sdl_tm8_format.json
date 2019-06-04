@@ -1,0 +1,20 @@
+{
+  "resources": {
+    "Hello": {
+      "en-US": "Hello",
+      "de-CH": "Hallo"
+    },
+    "TMX Data Manager": {
+      "en-US": "TMX Data Manager",
+      "de-CH": "TMX Daten Manager"
+    }
+  },
+  "sourceLanguage": "en-US",
+  "creationToolVersion": "8.0",
+  "administrationLanguage": "en-US",
+  "creationTool": "SDL Language Platform",
+  "version": "1.4",
+  "oTMF": "SDL TM8 Format",
+  "tuid": false,
+  "datatype": "xml"
+}

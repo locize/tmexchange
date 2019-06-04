@@ -86,7 +86,10 @@ const js = {
   "administrationLanguage": "en-US", // optional, default is sourceLanguage
   "creationTool": "tmexchange", // optional default is tmexchange
   "creationToolVersion": "1.0.0", // optional default is package.json version
-  "version": "1.4b" // optional, default 1.4b
+  "version": "1.4b", // optional, default 1.4b
+  "oTMF": "ABCTransMem", // optional, default ABCTransMem
+  "tuid": true, // optional, default true
+  "datatype": "PlainText" // optional, default PlainText
 };
 
 const js2tmx = require('tmexchange/js2tmx');

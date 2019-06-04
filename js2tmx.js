@@ -15,13 +15,15 @@ function js2tmx(obj, opt, cb) {
 
   const builder = new xml2js.Builder({
     rootName: 'tmx',
-    headless: true,
+    headless: opt.headless !== undefined ? opt.headless : true,
     renderOpts: {
       pretty: opt.pretty === false ? false : true,
       indent: opt.indent || '  ',
       newline: opt.newline || '\n'
     }
   });
+
+  obj.tuid = obj.tuid !== undefined ? obj.tuid : true;
 
   const xmlJs = {
     $: {
@@ -32,9 +34,9 @@ function js2tmx(obj, opt, cb) {
         creationtool: obj.creationTool || packageJSON.name,
         creationtoolversion: obj.creationToolVersion || packageJSON.version,
         adminlang: obj.administrationLanguage || obj.sourceLanguage,
-        datatype: 'PlainText',
-        segtype: 'sentence',
-        'o-tmf': 'ABCTransMem',
+        datatype: obj.datatype || 'PlainText',
+        segtype: obj.segtype || 'sentence',
+        'o-tmf': obj.oTMF || 'ABCTransMem',
         srclang: obj.sourceLanguage
       }
     },
@@ -45,11 +47,10 @@ function js2tmx(obj, opt, cb) {
 
   Object.keys(obj.resources).forEach((nsName) => {
     const possibleNoNs_tu = {
-      $: {
-        tuid: nsName
-      },
+      $: {},
       tuv: []
     };
+    if (obj.tuid) possibleNoNs_tu.$.tuid = nsName;
     Object.keys(obj.resources[nsName]).forEach((k, i) => {
       if (typeof obj.resources[nsName][k] === 'string') {
         // no namespace
@@ -66,9 +67,7 @@ function js2tmx(obj, opt, cb) {
 
       // with namespace
       const tu = {
-        $: {
-          tuid: k
-        },
+        $: {},
         prop: {
           $: {
             type: 'group'
@@ -77,6 +76,7 @@ function js2tmx(obj, opt, cb) {
         },
         tuv: []
       };
+      if (obj.tuid) tu.$.tuid = k;
       xmlJs.body.tu.push(tu);
       Object.keys(obj.resources[nsName][k]).forEach((l) => {
         const tuv = {
