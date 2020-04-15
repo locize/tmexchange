@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 module.exports = {
   example: {
@@ -18,4 +18,4 @@ module.exports = {
     js: require('./example_sdl_tm8_format.json'),
     tmx: fs.readFileSync(path.join(__dirname, 'example_sdl_tm8_format.tmx')).toString().replace(/\n$/, '')
   }
-};
+}

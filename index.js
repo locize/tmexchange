@@ -1,4 +1,2 @@
-module.exports = {
-  js2tmx: require('./js2tmx'),
-  tmx2js: require('./tmx2js')
-};
+import backend from './lib/index.js'
+export default backend

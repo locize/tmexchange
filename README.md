@@ -10,16 +10,22 @@ Alternatively, you can install using npm:
 npm install --save tmexchange
 ```
 
-You can then `require()` tmexchange as normal:
+You can then `import` or `require()` tmexchange as normal:
 
 ```js
-const tmx = require('tmexchange');
+import tmx from 'tmexchange'
+// or
+const tmx = require('tmexchange')
+
+tmx.tmx2js(xml, (err, res) => {})
 ```
 
-Or you can direclty `require()` its functions:
+Or you can direclty `import` or `require()` its functions:
 
 ```js
-const js2tmx = require('tmexchange/js2tmx');
+import js2tmx from 'tmexchange/js2tmx'
+// or
+const js2tmx = require('tmexchange/cjs/js2tmx')
 ```
 
 ## Usage
@@ -63,7 +69,7 @@ const tmx = `<tmx version="1.4b">
    </tuv>
   </tu>
  </body>
-</tmx>`;
+</tmx>`
 
 const js = {
   "resources": {
@@ -90,15 +96,25 @@ const js = {
   "oTMF": "ABCTransMem", // optional, default ABCTransMem
   "tuid": true, // optional, default true
   "datatype": "PlainText" // optional, default PlainText
-};
+}
 
-const js2tmx = require('tmexchange/js2tmx');
+import js2tmx from 'tmexchange/js2tmx'
 js2tmx(js, (err, res) => {
   // res is like tmx
 });
 
-const tmx2js = require('tmexchange/tmx2js');
+import tmx2js from 'tmexchange/tmx2js'
 tmx2js(tmx, (err, res) => {
   // res is like js
 });
+```
+
+Omitting the callback returns a promise
+
+```js
+const resJs = await tmx2js(xml)
+const resXml = await js2tmx(js)
+// or
+tmx2js(xml).then((res) => {})
+js2tmx(js).then((res) => {})
 ```
