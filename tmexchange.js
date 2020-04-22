@@ -12535,7 +12535,7 @@ function config (name) {
 },{"./NodeType":41,"./Utility":42,"./WriterState":43,"./XMLDOMImplementation":50,"./XMLDocument":58,"./XMLDocumentCB":59,"./XMLStreamWriter":67,"./XMLStringWriter":68}],73:[function(require,module,exports){
 module.exports={
   "name": "tmexchange",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "tmx2js and js2tmx converter tmx utils",
   "type": "module",
   "main": "./cjs/index.js",
@@ -12551,6 +12551,15 @@ module.exports={
     "./js2tmx": {
       "require": "./cjs/js2tmx.js",
       "default": "./lib/js2tmx.js"
+    },
+    "./cjs": {
+      "default": "./cjs/index.js"
+    },
+    "./cjs/tmx2js": {
+      "default": "./cjs/tmx2js.js"
+    },
+    "./cjs/js2tmx": {
+      "default": "./cjs/js2tmx.js"
     }
   },
   "module": "./lib/index.js",

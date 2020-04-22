@@ -16,6 +16,15 @@
     "./js2tmx": {
       "require": "./cjs/js2tmx.js",
       "default": "./lib/js2tmx.js"
+    },
+    "./cjs": {
+      "default": "./cjs/index.js"
+    },
+    "./cjs/tmx2js": {
+      "default": "./cjs/tmx2js.js"
+    },
+    "./cjs/js2tmx": {
+      "default": "./cjs/js2tmx.js"
     }
   },
   "module": "./lib/index.js",
