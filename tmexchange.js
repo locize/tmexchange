@@ -4,6 +4,18 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "tmx2js", {
+  enumerable: true,
+  get: function get() {
+    return _tmx2js["default"];
+  }
+});
+Object.defineProperty(exports, "js2tmx", {
+  enumerable: true,
+  get: function get() {
+    return _js2tmx["default"];
+  }
+});
 exports["default"] = void 0;
 
 var _tmx2js = _interopRequireDefault(require("./tmx2js.js"));
@@ -17,7 +29,6 @@ var _default = {
   js2tmx: _js2tmx["default"]
 };
 exports["default"] = _default;
-module.exports = exports.default;
 },{"./js2tmx.js":2,"./tmx2js.js":3}],2:[function(require,module,exports){
 "use strict";
 
@@ -161,9 +172,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = tmx2js;
 
-var xml2js = require('xml2js');
+var _xml2js = _interopRequireDefault(require("xml2js"));
 
-var parser = new xml2js.Parser();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var parser = new _xml2js["default"].Parser();
 
 function parse(tu, obj, srclang) {
   var hasTuid;
@@ -12522,7 +12535,7 @@ function config (name) {
 },{"./NodeType":41,"./Utility":42,"./WriterState":43,"./XMLDOMImplementation":50,"./XMLDocument":58,"./XMLDocumentCB":59,"./XMLStreamWriter":67,"./XMLStringWriter":68}],73:[function(require,module,exports){
 module.exports={
   "name": "tmexchange",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "tmx2js and js2tmx converter tmx utils",
   "type": "module",
   "main": "./cjs/index.js",
