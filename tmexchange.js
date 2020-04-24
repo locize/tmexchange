@@ -108,7 +108,7 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
           $: {
             'xml:lang': k
           },
-          seg: obj.resources[nsName][k]
+          seg: obj.resources[nsName][k].replace(/\f/g, '')
         };
         possibleNoNsTu.tuv.push(noNsTuv);
         return;
@@ -132,7 +132,7 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
           $: {
             'xml:lang': l
           },
-          seg: obj.resources[nsName][k][l]
+          seg: obj.resources[nsName][k][l].replace(/\f/g, '')
         };
         tu.tuv.push(tuv);
       });
@@ -12535,7 +12535,7 @@ function config (name) {
 },{"./NodeType":41,"./Utility":42,"./WriterState":43,"./XMLDOMImplementation":50,"./XMLDocument":58,"./XMLDocumentCB":59,"./XMLStreamWriter":67,"./XMLStringWriter":68}],73:[function(require,module,exports){
 module.exports={
   "name": "tmexchange",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "tmx2js and js2tmx converter tmx utils",
   "type": "module",
   "main": "./cjs/index.js",

@@ -1,3 +1,7 @@
+### 2.0.3
+
+- remove \f before converting to tmx
+
 ### 2.0.2
 
 - fix export for node v14 cjs
