@@ -1,3 +1,7 @@
+### 2.0.4
+
+- transpile also esm
+
 ### 2.0.3
 
 - remove \f before converting to tmx

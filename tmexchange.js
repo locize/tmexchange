@@ -7,41 +7,41 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "tmx2js", {
   enumerable: true,
   get: function get() {
-    return _tmx2js["default"];
+    return _tmx2js.default;
   }
 });
 Object.defineProperty(exports, "js2tmx", {
   enumerable: true,
   get: function get() {
-    return _js2tmx["default"];
+    return _js2tmx.default;
   }
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _tmx2js = _interopRequireDefault(require("./tmx2js.js"));
 
 var _js2tmx = _interopRequireDefault(require("./js2tmx.js"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  tmx2js: _tmx2js["default"],
-  js2tmx: _js2tmx["default"]
+  tmx2js: _tmx2js.default,
+  js2tmx: _js2tmx.default
 };
-exports["default"] = _default;
+exports.default = _default;
 },{"./js2tmx.js":2,"./tmx2js.js":3}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = js2tmx;
+exports.default = js2tmx;
 
 var _package = _interopRequireDefault(require("../package.json"));
 
 var _xml2js = _interopRequireDefault(require("xml2js"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var js2tmxClb = function js2tmxClb(obj, opt, cb) {
   if (!cb && typeof opt === 'function') {
@@ -65,7 +65,7 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
     throw err;
   }
 
-  var builder = new _xml2js["default"].Builder({
+  var builder = new _xml2js.default.Builder({
     rootName: 'tmx',
     headless: opt.headless !== undefined ? opt.headless : true,
     renderOpts: {
@@ -81,8 +81,8 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
     },
     header: {
       $: {
-        creationtool: obj.creationTool || _package["default"].name,
-        creationtoolversion: obj.creationToolVersion || _package["default"].version,
+        creationtool: obj.creationTool || _package.default.name,
+        creationtoolversion: obj.creationToolVersion || _package.default.version,
         adminlang: obj.administrationLanguage || obj.sourceLanguage,
         datatype: obj.datatype || 'PlainText',
         segtype: obj.segtype || 'sentence',
@@ -102,7 +102,6 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
     if (obj.tuid) possibleNoNsTu.$.tuid = nsName;
     Object.keys(obj.resources[nsName]).forEach(function (k, i) {
       if (typeof obj.resources[nsName][k] === 'string') {
-        // no namespace
         if (i === 0) xmlJs.body.tu.push(possibleNoNsTu);
         var noNsTuv = {
           $: {
@@ -112,8 +111,7 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
         };
         possibleNoNsTu.tuv.push(noNsTuv);
         return;
-      } // with namespace
-
+      }
 
       var tu = {
         $: {},
@@ -170,13 +168,13 @@ module.exports = exports.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = tmx2js;
+exports.default = tmx2js;
 
 var _xml2js = _interopRequireDefault(require("xml2js"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var parser = new _xml2js["default"].Parser();
+var parser = new _xml2js.default.Parser();
 
 function parse(tu, obj, srclang) {
   var hasTuid;
@@ -224,10 +222,7 @@ function tmx2jsClb(str, cb) {
     if (err) return cb(err);
     var datatype = data.tmx.header[0].$.datatype;
     var segtype = data.tmx.header[0].$.segtype;
-    var oTMF = data.tmx.header[0].$['o-tmf']; // if (datatype !== 'PlainText') err = new Error('datatype must be PlainText');
-    // if (segtype !== 'sentence') err = new Error('segtype must be sentence');
-    // if (oTMF !== 'ABCTransMem') err = new Error('o-tmf must be ABCTransMem');
-
+    var oTMF = data.tmx.header[0].$['o-tmf'];
     if (!datatype) err = new Error('datatype must be set');
     if (!segtype) err = new Error('segtype must be set');
     if (!oTMF) err = new Error('o-tmf must be set');
@@ -248,7 +243,6 @@ function tmx2jsClb(str, cb) {
     if (data.tmx.body[0].tu) {
       data.tmx.body[0].tu.forEach(function (tu) {
         if (tu.prop && tu.prop.length > 0 && getGroupProp(tu.prop)) {
-          // with namespace
           var namespace = getGroupProp(tu.prop);
           result.resources[namespace] = result.resources[namespace] || {};
           result.tuid = parse(tu, result.resources[namespace], srclang);
@@ -12535,22 +12529,22 @@ function config (name) {
 },{"./NodeType":41,"./Utility":42,"./WriterState":43,"./XMLDOMImplementation":50,"./XMLDocument":58,"./XMLDocumentCB":59,"./XMLStreamWriter":67,"./XMLStringWriter":68}],73:[function(require,module,exports){
 module.exports={
   "name": "tmexchange",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "tmx2js and js2tmx converter tmx utils",
   "type": "module",
   "main": "./cjs/index.js",
   "exports": {
     ".": {
       "require": "./cjs/index.js",
-      "default": "./lib/index.js"
+      "default": "./esm/index.js"
     },
     "./tmx2js": {
       "require": "./cjs/tmx2js.js",
-      "default": "./lib/tmx2js.js"
+      "default": "./esm/tmx2js.js"
     },
     "./js2tmx": {
       "require": "./cjs/js2tmx.js",
-      "default": "./lib/js2tmx.js"
+      "default": "./esm/js2tmx.js"
     },
     "./cjs": {
       "default": "./cjs/index.js"
@@ -12560,32 +12554,43 @@ module.exports={
     },
     "./cjs/js2tmx": {
       "default": "./cjs/js2tmx.js"
+    },
+    "./esm": {
+      "default": "./esm/index.js"
+    },
+    "./esm/tmx2js": {
+      "default": "./esm/tmx2js.js"
+    },
+    "./esm/js2tmx": {
+      "default": "./esm/js2tmx.js"
     }
   },
-  "module": "./lib/index.js",
+  "module": "./esm/index.js",
   "dependencies": {
     "xml2js": "0.4.23"
   },
   "devDependencies": {
-    "@babel/cli": "7.8.4",
-    "@babel/core": "7.9.0",
-    "@babel/preset-env": "7.9.5",
+    "@babel/cli": "7.10.4",
+    "@babel/core": "7.10.4",
+    "@babel/preset-env": "7.10.4",
     "babel-plugin-add-module-exports": "1.0.2",
     "browserify": "16.5.1",
-    "eslint": "6.8.0",
+    "eslint": "7.3.1",
     "eslint-config-standard": "14.1.1",
-    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-import": "2.22.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-require-path-exists": "1.1.9",
     "eslint-plugin-standard": "4.0.1",
     "expect.js": "0.3.1",
-    "mocha": "7.1.1",
-    "uglify-js": "3.9.1"
+    "mocha": "8.0.1",
+    "uglify-js": "3.10.0"
   },
   "scripts": {
     "lint": "eslint .",
-    "compile": "rm -rf cjs && mkdir cjs && babel lib -d cjs --presets=@babel/preset-env --plugins=add-module-exports && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
+    "compile:esm": "rm -rf esm && mkdir esm && BABEL_ENV=esm babel lib -d esm",
+    "compile:cjs": "rm -rf cjs && mkdir cjs && BABEL_ENV=cjs babel lib -d cjs && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
+    "compile": "npm run compile:esm && npm run compile:cjs",
     "browser": "browserify --standalone tmexchange cjs/index.js -o tmexchange.js && uglifyjs tmexchange.js --compress --mangle -o tmexchange.min.js",
     "build": "npm run compile && npm run browser",
     "test": "npm run lint && npm run build && mocha test -R spec",
