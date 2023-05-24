@@ -1,3 +1,7 @@
+### 2.0.5
+
+- update dependencies
+
 ### 2.0.4
 
 - transpile also esm
