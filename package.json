@@ -1,6 +1,6 @@
 {
   "name": "tmexchange",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "tmx2js and js2tmx converter tmx utils",
   "type": "module",
   "main": "./cjs/index.js",
