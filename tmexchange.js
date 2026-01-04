@@ -70,7 +70,7 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
     header: {
       $: {
         creationtool: obj.creationTool || 'tmexchange',
-        creationtoolversion: obj.creationToolVersion || '2.0.5',
+        creationtoolversion: obj.creationToolVersion || '2.0.6',
         adminlang: obj.administrationLanguage || obj.sourceLanguage,
         datatype: obj.datatype || 'PlainText',
         segtype: obj.segtype || 'sentence',
