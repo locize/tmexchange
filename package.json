@@ -63,10 +63,11 @@
     "compile:cjs": "rm -rf cjs && mkdir cjs && BABEL_ENV=cjs babel lib -d cjs && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
     "compile": "npm run compile:esm && npm run compile:cjs",
     "browser": "browserify --standalone tmexchange cjs/index.js -o tmexchange.js && uglifyjs tmexchange.js --compress --mangle -o tmexchange.min.js",
-    "build": "npm run compile && npm run browser",
+    "build": "npm run compile && npm run replace-placeholders && npm run browser",
+    "replace-placeholders": "node scripts/replacePlaceholders.js",
     "test": "npm run lint && npm run build && mocha test -R spec",
     "preversion": "npm run test && npm run build && git push",
-    "postversion": "git push && git push --tags"
+    "postversion": "npm run build && git push && git push --tags"
   },
   "keywords": [
     "tmx",

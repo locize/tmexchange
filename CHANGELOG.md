@@ -1,3 +1,7 @@
+### 2.0.6
+
+- fix for some esm import environments
+
 ### 2.0.5
 
 - update dependencies

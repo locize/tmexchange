@@ -32,7 +32,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = js2tmx;
-var _package = _interopRequireDefault(require("../package.json"));
 var _xml2js = _interopRequireDefault(require("xml2js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var js2tmxClb = function js2tmxClb(obj, opt, cb) {
@@ -70,8 +69,8 @@ var js2tmxClb = function js2tmxClb(obj, opt, cb) {
     },
     header: {
       $: {
-        creationtool: obj.creationTool || _package.default.name,
-        creationtoolversion: obj.creationToolVersion || _package.default.version,
+        creationtool: obj.creationTool || 'tmexchange',
+        creationtoolversion: obj.creationToolVersion || '2.0.5',
         adminlang: obj.administrationLanguage || obj.sourceLanguage,
         datatype: obj.datatype || 'PlainText',
         segtype: obj.segtype || 'sentence',
@@ -146,7 +145,7 @@ function js2tmx(obj, opt, cb) {
   js2tmxClb(obj, opt, cb);
 }
 module.exports = exports.default;
-},{"../package.json":70,"xml2js":36}],3:[function(require,module,exports){
+},{"xml2js":36}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12830,91 +12829,5 @@ function config (name) {
 
 }).call(this);
 
-},{"./NodeType":38,"./Utility":39,"./WriterState":40,"./XMLDOMImplementation":47,"./XMLDocument":55,"./XMLDocumentCB":56,"./XMLStreamWriter":64,"./XMLStringWriter":65}],70:[function(require,module,exports){
-module.exports={
-  "name": "tmexchange",
-  "version": "2.0.4",
-  "description": "tmx2js and js2tmx converter tmx utils",
-  "type": "module",
-  "main": "./cjs/index.js",
-  "exports": {
-    ".": {
-      "require": "./cjs/index.js",
-      "default": "./esm/index.js"
-    },
-    "./tmx2js": {
-      "require": "./cjs/tmx2js.js",
-      "default": "./esm/tmx2js.js"
-    },
-    "./js2tmx": {
-      "require": "./cjs/js2tmx.js",
-      "default": "./esm/js2tmx.js"
-    },
-    "./cjs": {
-      "default": "./cjs/index.js"
-    },
-    "./cjs/tmx2js": {
-      "default": "./cjs/tmx2js.js"
-    },
-    "./cjs/js2tmx": {
-      "default": "./cjs/js2tmx.js"
-    },
-    "./esm": {
-      "default": "./esm/index.js"
-    },
-    "./esm/tmx2js": {
-      "default": "./esm/tmx2js.js"
-    },
-    "./esm/js2tmx": {
-      "default": "./esm/js2tmx.js"
-    }
-  },
-  "module": "./esm/index.js",
-  "dependencies": {
-    "xml2js": "0.5.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "7.21.5",
-    "@babel/core": "7.21.8",
-    "@babel/preset-env": "7.21.5",
-    "babel-plugin-add-module-exports": "1.0.4",
-    "browserify": "17.0.0",
-    "eslint": "8.41.0",
-    "eslint-config-standard": "17.0.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-require-path-exists": "1.1.9",
-    "eslint-plugin-standard": "4.1.0",
-    "expect.js": "0.3.1",
-    "mocha": "10.2.0",
-    "uglify-js": "3.17.4"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "compile:esm": "rm -rf esm && mkdir esm && BABEL_ENV=esm babel lib -d esm",
-    "compile:cjs": "rm -rf cjs && mkdir cjs && BABEL_ENV=cjs babel lib -d cjs && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
-    "compile": "npm run compile:esm && npm run compile:cjs",
-    "browser": "browserify --standalone tmexchange cjs/index.js -o tmexchange.js && uglifyjs tmexchange.js --compress --mangle -o tmexchange.min.js",
-    "build": "npm run compile && npm run browser",
-    "test": "npm run lint && npm run build && mocha test -R spec",
-    "preversion": "npm run test && npm run build && git push",
-    "postversion": "git push && git push --tags"
-  },
-  "keywords": [
-    "tmx",
-    "json",
-    "js",
-    "translation"
-  ],
-  "author": "adrai",
-  "license": "MIT",
-  "homepage": "http://locize.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/locize/tmexchange.git"
-  }
-}
-
-},{}]},{},[1])(1)
+},{"./NodeType":38,"./Utility":39,"./WriterState":40,"./XMLDOMImplementation":47,"./XMLDocument":55,"./XMLDocumentCB":56,"./XMLStreamWriter":64,"./XMLStringWriter":65}]},{},[1])(1)
 });
